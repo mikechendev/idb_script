@@ -1,0 +1,18 @@
+/Users/mc/Documents/Dev/python/idbScript/idbScript.py:13: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+  driver = webdriver.Chrome("../chromedriver")
+Traceback (most recent call last):
+  File "/Users/mc/Documents/Dev/python/idbScript/idbScript.py", line 44, in <module>
+    schedule.run_pending()
+  File "/usr/local/lib/python3.9/site-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.9/site-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.9/site-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.9/site-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "/Users/mc/Documents/Dev/python/idbScript/idbScript.py", line 29, in idbScript
+    wait.until(EC.element_to_be_clickable)(
+  File "/usr/local/lib/python3.9/site-packages/selenium/webdriver/support/expected_conditions.py", line 312, in _predicate
+    target = driver.find_element(*target)  # grab element at locator
+AttributeError: 'tuple' object has no attribute 'find_element'
