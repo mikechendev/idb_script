@@ -10,7 +10,7 @@ import time
 
 
 def idbScript():
-    driver = webdriver.Chrome("../chromedriver")
+    driver = webdriver.Chrome("../chromedriver") # point to directory where chromedriver is stored
     driver.get("https://www.interview-db.com/")
     link = driver.find_element("link text", "Student Sign in with Github")
     link.click()
