@@ -14,8 +14,7 @@ def idbScript():
         "../chromedriver"
     )  # Point to directory where chromedriver is stored
     driver.get("https://www.interview-db.com/")
-    link = driver.find_element("link text", "Student Sign in with Github")
-    link.click()
+    driver.find_element("link text", "Student Sign in with Github").click()
 
     wait = WebDriverWait(driver, 10)
     wait.until(EC.element_to_be_clickable((By.NAME, "login"))).send_keys(
