@@ -38,7 +38,7 @@ def idbScript():
     driver.quit()
 
 
-for i in ["08:50", "17:20"]:
+for i in ["09:50", "17:20"]:
     schedule.every().monday.at(i).do(idbScript)
     schedule.every().tuesday.at(i).do(idbScript)
     schedule.every().wednesday.at(i).do(idbScript)
