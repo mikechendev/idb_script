@@ -24,11 +24,8 @@ def idbScript():
     )  # enter your github password
     wait.until(EC.element_to_be_clickable((By.NAME, "commit"))).click()
 
-    time.sleep(10)
-    # wait.until(EC.presence_of_element_located)((By.XPATH, "//*[@id='react-tabs-2']")).click()
-    wait.until(EC.element_to_be_clickable)(
-        (By.XPATH, "//*[@id='react-tabs-2']")
-    ).click()
+    time.sleep(5)
+    driver.find_element("xpath", "//*[contains(text(), 'Attendance')]").click()
     wait.until(EC.element_to_be_clickable)(
         (By.ID, "sc-dnqmqq eZdSMY sc-jnlKLf kSIKvw")
     ).click()
@@ -37,11 +34,15 @@ def idbScript():
     ).click()
 
 
-schedule.every().day.at("08:50").do(idbScript)
-schedule.every().day.at("17:20").do(idbScript)
+for i in ["08:50", "17:20"]:
+    schedule.every().monday.at(i).do(idbScript)
+    schedule.every().tuesday.at(i).do(idbScript)
+    schedule.every().wednesday.at(i).do(idbScript)
+    schedule.every().thursday.at(i).do(idbScript)
+    schedule.every().friday.at(i).do(idbScript)
 
 while True:
     schedule.run_pending()
-    time.sleep(60)
+    time.sleep(30)
 
 # run with nohup python3 idbScript.py &
