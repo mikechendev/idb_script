@@ -10,7 +10,9 @@ import time
 
 
 def idbScript():
-    driver = webdriver.Chrome("../chromedriver") # point to directory where chromedriver is stored
+    driver = webdriver.Chrome(
+        "../chromedriver"
+    )  # Point to directory where chromedriver is stored
     driver.get("https://www.interview-db.com/")
     link = driver.find_element("link text", "Student Sign in with Github")
     link.click()
@@ -32,6 +34,9 @@ def idbScript():
     wait.until(EC.element_to_be_clickable)(
         (By.ID, "sc-dnqmqq eKQKYW sc-jnlKLf kdusnr")
     ).click()
+
+    time.sleep(5)
+    driver.quit()
 
 
 for i in ["08:50", "17:20"]:
