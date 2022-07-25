@@ -11,8 +11,9 @@ import time
 
 def idbScript():
     driver = webdriver.Chrome(
-        "../chromedriver"
+        "../../chromedriver"
     )  # Point to directory where chromedriver is stored
+
     driver.get("https://www.interview-db.com/")
     driver.find_element("link text", "Student Sign in with Github").click()
 
@@ -39,6 +40,8 @@ def idbScript():
     driver.quit()
 
 
+# idbScript()
+
 for i in ["09:50", "17:20"]:
     schedule.every().monday.at(i).do(idbScript)
     schedule.every().tuesday.at(i).do(idbScript)
@@ -51,3 +54,10 @@ while True:
     time.sleep(60)
 
 # run with nohup python3 idbScript.py &
+
+# options = webdriver.ChromeOptions()
+# options.add_argument("--ignore-ssl-errors=yes")
+# options.add_argument("--ignore-certificate-errors")
+# driver = webdriver.Remote(
+#     command_executor="http://localhost:4444/wd/hub", options=options
+# )

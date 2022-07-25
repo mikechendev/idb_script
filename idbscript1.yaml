@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: idbscript1
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: idbscript1
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: idbscript
+            imagePullPolicy: IfNotPresent
+            name: idbscript1
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: 50 9 * * 1-5
+status: {}
