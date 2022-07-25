@@ -26,13 +26,12 @@ def idbScript():
     )  # enter your github password
     wait.until(EC.element_to_be_clickable((By.NAME, "commit"))).click()
 
-    time.sleep(5)
+    time.sleep(3)
     driver.find_element("xpath", "//*[contains(text(), 'Attendance')]").click()
     time.sleep(3)
-    driver.find_element(
-        "xpath", "//button[@class='sc-dnqmqq eZdSMY sc-jnlKLf kSIKvw']"
-    ).click()
-    driver.find_element("xpath", "//button[text()='05:30 pm- Check In']").click()
+    buttons = driver.find_elements(By.XPATH, "//button")
+    for button in buttons:
+        button.click()
 
     time.sleep(5)
     driver.quit()
