@@ -32,9 +32,7 @@ def idbScript():
     driver.find_element(
         "xpath", "//button[@class='sc-dnqmqq eZdSMY sc-jnlKLf kSIKvw']"
     ).click()
-    driver.find_element(
-        "xpath", "//button[@class='sc-dnqmqq eKQKYW sc-jnlKLf kdusnr']"
-    ).click()
+    driver.find_element("xpath", "//button[text()='05:30 pm- Check In']").click()
 
     time.sleep(5)
     driver.quit()
