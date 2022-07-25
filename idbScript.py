@@ -27,11 +27,12 @@ def idbScript():
 
     time.sleep(5)
     driver.find_element("xpath", "//*[contains(text(), 'Attendance')]").click()
-    wait.until(EC.element_to_be_clickable)(
-        (By.ID, "sc-dnqmqq eZdSMY sc-jnlKLf kSIKvw")
+    time.sleep(3)
+    driver.find_element(
+        "xpath", "//button[@class='sc-dnqmqq eZdSMY sc-jnlKLf kSIKvw']"
     ).click()
-    wait.until(EC.element_to_be_clickable)(
-        (By.ID, "sc-dnqmqq eKQKYW sc-jnlKLf kdusnr")
+    driver.find_element(
+        "xpath", "//button[@class='sc-dnqmqq eKQKYW sc-jnlKLf kdusnr']"
     ).click()
 
     time.sleep(5)
@@ -47,6 +48,6 @@ for i in ["09:50", "17:20"]:
 
 while True:
     schedule.run_pending()
-    time.sleep(30)
+    time.sleep(60)
 
 # run with nohup python3 idbScript.py &
