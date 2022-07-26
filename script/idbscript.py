@@ -5,7 +5,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-import webbrowser
 import schedule
 import time
 
@@ -23,10 +22,10 @@ def idbScript():
 
     wait = WebDriverWait(driver, 10)
     wait.until(EC.element_to_be_clickable((By.NAME, "login"))).send_keys(
-        ""
+        "username"
     )  # enter your github username
     wait.until(EC.element_to_be_clickable((By.NAME, "password"))).send_keys(
-        ""
+        "password"
     )  # enter your github password
     wait.until(EC.element_to_be_clickable((By.NAME, "commit"))).click()
 
