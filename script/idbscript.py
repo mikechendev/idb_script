@@ -1,18 +1,22 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import webbrowser
-import schedule  # pip install schedule
+import schedule
 import time
 
 # Download chromedriver from https://chromedriver.chromium.org/downloads
 
 
 def idbScript():
+    options = Options()
     driver = webdriver.Chrome(
-        "../../chromedriver"
-    )  # Point to directory where chromedriver is stored
+        service=Service(ChromeDriverManager().install()), options=options
+    )
 
     driver.get("https://www.interview-db.com/")
     driver.find_element("link text", "Student Sign in with Github").click()
@@ -51,10 +55,3 @@ while True:
     time.sleep(60)
 
 # run with nohup python3 idbScript.py &
-
-# options = webdriver.ChromeOptions()
-# options.add_argument("--ignore-ssl-errors=yes")
-# options.add_argument("--ignore-certificate-errors")
-# driver = webdriver.Remote(
-#     command_executor="http://localhost:4444/wd/hub", options=options
-# )
